@@ -1,0 +1,178 @@
+/* ─── Showreel Section ───────────────────────────────────────────────────── */
+.showreel-section {
+    position: relative;
+    width: 100%;
+    min-height: 90vh;
+    background-color: var(--color-black-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+}
+
+.showreel__video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 0.85;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.showreel-section.is--intro-hidden .showreel__video {
+    opacity: 1;
+}
+
+.showreel__overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.75) 100%);
+    z-index: 2;
+    pointer-events: none;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.showreel-section.is--intro-hidden .showreel__overlay {
+    opacity: 0.2;
+}
+
+/* ─── Initial Intro Splash Banner (Fades out permanently once started) ─── */
+.showreel__intro-banner {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 0 24px;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: none;
+}
+
+.showreel-section.is--intro-hidden .showreel__intro-banner {
+    opacity: 0;
+    transform: scale(0.95) translateY(-15px);
+    pointer-events: none;
+}
+
+.showreel__tag {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-pink);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    padding: 6px 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.showreel__title {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 8vw, 7.5rem);
+    font-weight: 900;
+    letter-spacing: -2px;
+    color: var(--color-white);
+    margin: 0;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* ─── Minimal Pause Indicator (Subtle glass circle in center when paused) ─── */
+.showreel__pause-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+    pointer-events: none;
+    animation: fadeInCircle 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeInCircle {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0.85); }
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.showreel__play-circle {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 4px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* ─── Bottom Floating Mini HUD (Unobtrusive Controls) ─────────────────────── */
+.showreel__hud {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(10, 10, 10, 0.75);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 6px 14px;
+    border-radius: 999px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    opacity: 0.9;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.showreel__hud:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.showreel__hud-btn {
+    background: transparent;
+    border: none;
+    color: var(--color-white);
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 999px;
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+.showreel__hud-btn:hover {
+    color: var(--color-lightgreen);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.showreel__hud-divider {
+    width: 1px;
+    height: 14px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+    .showreel__hud {
+        bottom: 20px;
+        right: 20px;
+    }
+}

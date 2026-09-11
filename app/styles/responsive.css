@@ -1,0 +1,805 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   RESPONSIVE DESIGN SYSTEM — KINETIK STUDIO
+   Optimized for: Galaxy Z Fold (280px-344px), iPhone SE/12/14/15/16 Pro Max,
+   Pixel 7/8/9/10, Samsung Galaxy S20/A51, iPad Mini/Air/Pro, Surface Pro/Duo,
+   Asus Zenbook Fold, and all High-Resolution Desktops.
+───────────────────────────────────────────────────────────────────────────── */
+
+/* ─── 1. Ultra-Wide & Large Desktops (≥ 1440px) ───────────────────────────── */
+@media (min-width: 1440px) {
+  .vimeo-hero {
+    max-width: 1800px;
+  }
+  .metrics__container,
+  .cards-wrapper {
+    max-width: 1360px;
+  }
+}
+
+/* ─── 2. Laptops & Large Tablets (901px – 1340px) ─────────────────────────── */
+@media (min-width: 901px) and (max-width: 1340px) {
+  .navbar {
+    padding: 18px 32px;
+  }
+
+  .cards-wrapper {
+    transform: scale(0.88);
+    transform-origin: center top;
+    margin: 30px auto 60px;
+  }
+
+  .metrics__container {
+    max-width: 95%;
+  }
+
+  .metrics__pillars-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .marquee-right {
+    width: 480px;
+  }
+}
+
+/* ─── 3. Tablets & Foldables in Tablet Mode (769px – 900px) ───────────────── */
+@media (min-width: 769px) and (max-width: 900px) {
+  .navbar {
+    padding: 16px 24px;
+  }
+
+  .logo-truus {
+    width: 120px;
+  }
+
+  .home-header__title {
+    padding: 0 28px;
+    bottom: 50px;
+  }
+
+  .vimeo-hero__title {
+    font-size: clamp(2.4rem, 6vw, 4.5rem);
+  }
+
+  .motion-card__title {
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+  }
+
+  .metrics-section {
+    padding: 120px 28px 90px;
+  }
+
+  .metrics__pillars-row {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .footer-column h3,
+  .footer-column address,
+  .footer-email {
+    font-size: 1.6rem;
+  }
+
+  .footer-inner {
+    min-height: auto;
+    padding: 60px 32px 0;
+    overflow: hidden;
+  }
+
+  .footer-big-text {
+    position: relative;
+    width: 100%;
+    margin-bottom: -1.5vw;
+  }
+
+  .footer-bottom-row {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    left: auto;
+    width: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .footer-credits-wrapper {
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+
+  .sticker-boom {
+    left: 2%;
+    bottom: 12%;
+    width: clamp(65px, 9.5vw, 95px);
+  }
+
+  .sticker-smiley {
+    left: 14.5%;
+    bottom: 48%;
+    width: clamp(60px, 9vw, 90px);
+  }
+
+  .sticker-heart {
+    left: 40.5%;
+    bottom: 38%;
+    width: clamp(60px, 9vw, 90px);
+  }
+
+  .footer-sticker.sticker-hands {
+    left: 51.5%;
+    bottom: 0%;
+    width: clamp(60px, 9vw, 90px);
+  }
+
+  .footer-sticker.sticker-100 {
+    left: 59.5%;
+    bottom: 58%;
+    width: clamp(60px, 9vw, 90px);
+  }
+
+  .footer-sticker.sticker-camera {
+    right: 0%;
+    bottom: 42%;
+    width: clamp(55px, 8.5vw, 85px);
+  }
+}
+
+/* ─── 4. Mobile & Small Tablet Devices (≤ 900px) ─────────────────────────── */
+@media (max-width: 900px) {
+  /* ── Service Cards (Horizontal Swipe Carousel Mode) ── */
+  .cards-wrapper {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    gap: 16px !important;
+    padding: 16px 20px 28px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    margin: 10px auto 40px !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    justify-content: flex-start !important;
+    perspective: none !important;
+    transform: none !important;
+  }
+
+  .cards-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    flex: 0 0 calc(85vw - 20px) !important;
+    max-width: 320px !important;
+    height: auto !important;
+    min-height: 420px !important;
+    scroll-snap-align: center !important;
+    border-radius: 20px !important;
+    margin: 0 !important;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18) !important;
+  }
+
+  .card-sticker {
+    pointer-events: none;
+  }
+
+  /* ── Double Marquee (Automatic Continuous Motion on Mobile) ── */
+  .Double-marquee {
+    min-height: auto !important;
+    padding: 40px 20px 30px !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 24px !important;
+    overflow: hidden !important;
+  }
+
+  .marquee-left {
+    min-height: auto !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: flex-start !important;
+  }
+
+  .marquee-blob-container {
+    display: none !important;
+  }
+
+  .marquee-left h2 {
+    margin-bottom: 0 !important;
+    margin-right: 0 !important;
+    font-size: clamp(2.2rem, 7.5vw, 3.2rem) !important;
+  }
+
+  .marquee-right {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    width: calc(100% + 40px) !important;
+    max-width: none !important;
+    margin-left: -20px !important;
+    margin-right: -20px !important;
+    height: auto !important;
+    padding: 10px 0 20px !important;
+    overflow: hidden !important;
+  }
+
+  .marquee-column {
+    display: flex !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    position: relative !important;
+    mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  }
+
+  .marquee-column::before,
+  .marquee-column::after {
+    display: none !important;
+  }
+
+  .marquee-track {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 10px !important;
+    width: max-content !important;
+    will-change: transform !important;
+  }
+
+  .marquee-column:nth-child(1) .marquee-track {
+    animation: marqueeLeftMobile 24s linear infinite !important;
+  }
+
+  .marquee-column:nth-child(2) .marquee-track {
+    animation: marqueeRightMobile 26s linear infinite !important;
+  }
+
+  .marquee-item {
+    width: 105px !important;
+    height: 105px !important;
+    flex: 0 0 105px !important;
+    border-radius: 14px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .marquee-item img {
+    max-width: 58px !important;
+    max-height: 42px !important;
+  }
+}
+
+/* ─── 5. Standard Mobile (≤ 768px) ────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* ── Navbar ── */
+  .navbar {
+    padding: 12px 16px;
+  }
+
+  .logo-work-container {
+    width: 44px;
+    height: 40px;
+  }
+
+  .logo-work-text {
+    font-size: 1.3rem;
+    margin-left: 46px;
+  }
+
+  .logo-truus {
+    width: 110px;
+  }
+
+  .nav-bar__whatsapp-svg {
+    width: 26px;
+  }
+
+  /* ── Hero ── */
+  .vimeo-hero {
+    width: calc(100% - 16px);
+    height: calc(100svh - 16px);
+    margin: 8px auto;
+    border-radius: 18px;
+  }
+
+  .home-header__title {
+    padding: 0 16px;
+    bottom: 36px;
+  }
+
+  .vimeo-hero__title {
+    font-size: clamp(2rem, 8vw, 3.4rem);
+    letter-spacing: -1.5px;
+  }
+
+  .vimeo-hero__controls {
+    bottom: 14px;
+    right: 14px;
+    transform: scale(0.9);
+  }
+
+  /* ── Horizontal Words Marquee ── */
+  .horizontal-words__item {
+    font-size: clamp(1.8rem, 6.5vw, 3rem);
+    padding: 0 20px;
+  }
+
+  /* ── Motion Cards Section (All 4 Images Visible & Swipeable) ── */
+  .content-section {
+    padding: 0;
+    overflow: visible;
+  }
+
+  .motion-card-section {
+    padding: 105px 16px 50px;
+  }
+
+  .motion-card__heading {
+    padding: 0 12px;
+    margin-bottom: 20px;
+  }
+
+  .motion-card__title {
+    font-size: clamp(2.1rem, 7.8vw, 3.4rem);
+    letter-spacing: -1.5px;
+    line-height: 1.02;
+  }
+
+  .motion-card__subtitle {
+    font-size: clamp(1.5rem, 5.8vw, 2.3rem);
+    margin-top: 4px;
+  }
+
+  .motion-card__cards-area {
+    height: auto;
+    margin: 16px auto 30px;
+    overflow: visible;
+  }
+
+  .motion-card__cards {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    gap: 14px !important;
+    padding: 16px 20px 24px !important;
+    width: 100% !important;
+    height: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    justify-content: flex-start !important;
+  }
+
+  .motion-card__cards::-webkit-scrollbar {
+    display: none;
+  }
+
+  .motion-card__card {
+    flex: 0 0 220px !important;
+    width: 220px !important;
+    height: 300px !important;
+    border-radius: 16px !important;
+    position: relative !important;
+    margin: 0 !important;
+    top: auto !important;
+    left: auto !important;
+    bottom: auto !important;
+    right: auto !important;
+    scroll-snap-align: center !important;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16) !important;
+  }
+
+  .motion-card__card--1 {
+    transform: rotate(-2deg) !important;
+  }
+
+  .motion-card__card--2 {
+    transform: rotate(2deg) !important;
+  }
+
+  .motion-card__card--3 {
+    transform: rotate(-1.5deg) !important;
+  }
+
+  .motion-card__card--4 {
+    transform: rotate(2.5deg) !important;
+  }
+
+  .motion-card__mobile-badge {
+    display: inline-block !important;
+  }
+
+  .motion-card__floating-labels {
+    display: none !important;
+  }
+
+  .motion-card__blob {
+    width: 260px;
+    height: 260px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.7;
+  }
+
+  /* ── Showreel ── */
+  .showreel-section {
+    padding: 40px 8px;
+  }
+
+  .showreel__video-box {
+    width: calc(100% - 12px);
+    height: 55vh;
+    min-height: 340px;
+    border-radius: 18px;
+  }
+
+  .showreel__title {
+    font-size: clamp(2rem, 7vw, 3.4rem);
+  }
+
+  .showreel__hud {
+    bottom: 16px;
+    padding: 8px 16px;
+    gap: 12px;
+  }
+
+  /* ── Studio Metrics (2-Column Grid on Mobile) ── */
+  .metrics-section {
+    padding: 90px 16px 70px;
+  }
+
+  .metrics__header-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .metrics__header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .metrics__title {
+    font-size: clamp(2rem, 8vw, 3.4rem);
+  }
+
+  .metrics__tabs-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .metrics__tabs-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .metrics__tab-btn {
+    padding: 8px 18px;
+    font-size: 0.82rem;
+  }
+
+  .metrics__console-card {
+    padding: 22px 16px;
+    border-radius: 20px;
+    gap: 20px;
+  }
+
+  .metrics__chart-box {
+    height: 180px;
+  }
+
+  /* 2 Columns for stats */
+  .metrics__stats-row {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+    padding-top: 18px !important;
+  }
+
+  .metrics__stat-box {
+    padding: 12px 12px !important;
+    min-width: 0 !important;
+  }
+
+  .metrics__stat-top {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 2px !important;
+  }
+
+  .metrics__stat-value {
+    font-size: 1.5rem !important;
+  }
+
+  .metrics__stat-delta {
+    font-size: 0.74rem !important;
+  }
+
+  .metrics__stat-label {
+    font-size: 0.7rem !important;
+  }
+
+  /* 2 Columns for 4 benchmark pillars */
+  .metrics__pillars-row {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  .metrics__pillar-card {
+    padding: 16px 14px !important;
+    border-radius: 14px !important;
+    min-width: 0 !important;
+  }
+
+  .metrics__pillar-num {
+    font-size: clamp(1.6rem, 5.2vw, 2.2rem) !important;
+    margin-bottom: 4px !important;
+  }
+
+  .metrics__pillar-name {
+    font-size: clamp(0.85rem, 2.8vw, 1rem) !important;
+    margin-bottom: 4px !important;
+  }
+
+  .metrics__pillar-sub {
+    font-size: clamp(0.72rem, 2.2vw, 0.82rem) !important;
+    line-height: 1.35 !important;
+  }
+
+  /* ── Service Cards Title ── */
+  .main-title {
+    font-size: clamp(2.4rem, 8vw, 3.6rem);
+    letter-spacing: -1.5px;
+  }
+
+  .title-underline-svg {
+    width: 110px;
+    bottom: -8px;
+  }
+
+  /* ── Footer ── */
+  .main-footer {
+    padding: 6px;
+  }
+
+  .footer-inner {
+    padding: 36px 16px 0;
+    border-radius: 18px;
+    min-height: auto;
+    overflow: hidden;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .footer-column h3 {
+    font-size: 1.35rem;
+  }
+
+  .footer-column address,
+  .footer-email,
+  .footer-whatsapp {
+    font-size: 1.25rem;
+  }
+
+  .footer-bottom {
+    margin-top: 32px;
+    position: relative;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .footer-big-text {
+    position: relative;
+    width: 100%;
+    margin-bottom: -1.8vw !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-logo__svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .footer-bottom-row {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    left: auto;
+    width: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .footer-credits-wrapper {
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
+    pointer-events: auto;
+  }
+
+  .sticker-boom {
+    left: 2%;
+    bottom: 12%;
+    width: clamp(38px, 10.5vw, 62px);
+  }
+
+  .sticker-smiley {
+    left: 14.5%;
+    bottom: 48%;
+    width: clamp(36px, 10vw, 58px);
+  }
+
+  .sticker-heart {
+    left: 40.5%;
+    bottom: 38%;
+    width: clamp(36px, 10vw, 58px);
+  }
+
+  .footer-sticker.sticker-hands {
+    left: 51.5%;
+    bottom: 0%;
+    width: clamp(36px, 10vw, 58px);
+  }
+
+  .footer-sticker.sticker-100 {
+    left: 59.5%;
+    bottom: 58%;
+    width: clamp(36px, 10vw, 58px);
+  }
+
+  .footer-sticker.sticker-camera {
+    right: 0%;
+    bottom: 42%;
+    width: clamp(34px, 9.5vw, 54px);
+  }
+
+  .footer-credits {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+  }
+}
+
+/* ─── 6. Compact Mobile & Foldables Folded (≤ 380px) ───────────────────────── */
+@media (max-width: 380px) {
+  .navbar {
+    padding: 10px 12px;
+  }
+
+  .logo-truus {
+    width: 95px;
+  }
+
+  .logo-work-text {
+    font-size: 1.1rem;
+    margin-left: 36px;
+  }
+
+  .vimeo-hero__title {
+    font-size: 1.8rem;
+  }
+
+  .motion-card__title {
+    font-size: 1.85rem;
+  }
+
+  .motion-card__card {
+    flex: 0 0 200px !important;
+    width: 200px !important;
+    height: 270px !important;
+  }
+
+  .card {
+    width: 90vw !important;
+    padding: 2rem 1.2rem 1.5rem !important;
+  }
+
+  .card-title {
+    font-size: 1.45rem;
+  }
+
+  .card-list li {
+    font-size: 0.88rem;
+  }
+
+  .marquee-item {
+    width: 88px !important;
+    height: 88px !important;
+    flex: 0 0 88px !important;
+    border-radius: 12px !important;
+  }
+
+  .marquee-item img {
+    max-width: 48px !important;
+    max-height: 34px !important;
+  }
+
+  .metrics__stats-row {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  .metrics__stat-box {
+    padding: 10px 8px !important;
+  }
+
+  .metrics__pillars-row {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  .metrics__pillar-card {
+    padding: 14px 10px !important;
+  }
+
+  .footer-column h3,
+  .footer-column address,
+  .footer-email,
+  .footer-whatsapp {
+    font-size: 1.15rem;
+  }
+
+  .footer-inner {
+    padding: 28px 12px 0;
+  }
+
+  .footer-bottom-row {
+    bottom: 5px;
+    right: 5px;
+  }
+
+  .footer-credits {
+    font-size: 0.7rem;
+    padding: 2px 6px;
+  }
+
+  .sticker-boom {
+    width: clamp(30px, 10vw, 42px);
+  }
+
+  .sticker-smiley {
+    width: clamp(28px, 9.5vw, 38px);
+  }
+
+  .sticker-heart {
+    width: clamp(28px, 9.5vw, 38px);
+  }
+
+  .footer-sticker.sticker-hands {
+    width: clamp(28px, 9.5vw, 38px);
+  }
+
+  .footer-sticker.sticker-100 {
+    width: clamp(28px, 9.5vw, 38px);
+  }
+
+  .footer-sticker.sticker-camera {
+    width: clamp(26px, 9vw, 36px);
+  }
+}

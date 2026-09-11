@@ -1,0 +1,215 @@
+/* ─── Cards Wrapper ──────────────────────────────────────────────────────── */
+.cards-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: 640px;
+  margin: 50px auto 120px;
+  display: flex;
+  justify-content: center;
+  perspective: 1200px;
+  cursor: url("/assets/Cursor SVG/cursor-text.svg") 12 12, auto;
+}
+
+/* ─── Base Card ──────────────────────────────────────────────────────────── */
+.card {
+  width: 285px;
+  height: 460px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 1.1rem;
+  padding: 2.8rem 1.4rem 1.8rem;
+  cursor: pointer;
+  border-radius: 18px;
+  color: var(--color-white);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16), 0 2px 6px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transform-origin: center 80%;
+  transform-style: preserve-3d;
+  will-change: transform, box-shadow;
+  transition: box-shadow 0.4s ease;
+  user-select: none;
+}
+
+.card:hover {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.26), 0 6px 16px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.card-title {
+  text-align: left;
+  font-size: 1.75rem;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  margin-top: 18px;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  word-break: break-word;
+}
+
+.card-divider-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+/* ─── Card Color Variants & Balanced Compact Fan Spacing ─────────────────── */
+.card-green {
+  background-color: var(--color-green);
+  left: calc(50% - 480px);
+  top: 50px;
+  transform: rotate(-5deg);
+  z-index: 1;
+}
+
+.card-darkblue {
+  background-color: var(--color-lightblue);
+  color: var(--color-dark);
+  left: calc(50% - 250px);
+  top: 95px;
+  transform: rotate(-2deg);
+  z-index: 2;
+}
+
+.card-orange {
+  background-color: var(--color-orange);
+  color: var(--color-dark);
+  left: calc(50% - 142px);
+  top: 15px;
+  transform: rotate(2.5deg);
+  z-index: 3;
+}
+
+.card-maroon {
+  background-color: var(--color-maroon);
+  left: calc(50% - 35px);
+  top: 35px;
+  transform: rotate(-3deg);
+  z-index: 4;
+}
+
+.card-pink {
+  background-color: var(--color-pink);
+  color: var(--color-dark);
+  left: calc(50% + 195px);
+  top: 75px;
+  transform: rotate(5deg);
+  z-index: 5;
+}
+
+/* Expand hit area for middle cards to bridge gaps */
+.card-darkblue::after,
+.card-orange::after,
+.card-maroon::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -20px;
+  right: -20px;
+}
+
+/* Light card divider overrides */
+.card-pink .card-divider-svg,
+.card-orange .card-divider-svg,
+.card-darkblue .card-divider-svg {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/* ─── Card List ──────────────────────────────────────────────────────────── */
+.card-list {
+  list-style: none;
+  font-family: var(--font-body);
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.card-list li {
+  font-size: 0.98rem;
+  font-weight: 600;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.35;
+  letter-spacing: -0.2px;
+}
+
+.services-card__bullet-svg {
+  width: 12px;
+  height: 15px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: currentColor;
+}
+
+/* ─── Card Sticker Variables ─────────────────────────────────────────────── */
+:root {
+  --sticker-camera-w: 95px;
+  --sticker-phone-w: 90px;
+  --sticker-smiley-w: 90px;
+  --sticker-hand-w: 90px;
+  --sticker-heart-w: 95px;
+
+  --sticker-camera-top: -28px;
+  --sticker-phone-top: -28px;
+  --sticker-smiley-top: -30px;
+  --sticker-hand-top: -28px;
+  --sticker-heart-top: -30px;
+}
+
+/* ─── Card Stickers ──────────────────────────────────────────────────────── */
+.card-sticker {
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+  transform-origin: center center;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.18));
+}
+
+.card-sticker svg,
+.card-sticker img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.card-sticker.sticker-camera {
+  width: var(--sticker-camera-w);
+  top: var(--sticker-camera-top);
+  right: -8px;
+  transform: rotate(6deg);
+}
+
+.card-sticker.sticker-phone {
+  width: var(--sticker-phone-w);
+  top: var(--sticker-phone-top);
+  right: -8px;
+  transform: rotate(3deg);
+}
+
+.card-sticker.sticker-smiley {
+  width: var(--sticker-smiley-w);
+  top: var(--sticker-smiley-top);
+  right: -8px;
+  transform: rotate(-5deg);
+}
+
+.card-sticker.sticker-hand {
+  width: var(--sticker-hand-w);
+  top: var(--sticker-hand-top);
+  right: -8px;
+  transform: rotate(8deg);
+}
+
+.card-sticker.sticker-heart {
+  width: var(--sticker-heart-w);
+  top: var(--sticker-heart-top);
+  right: -8px;
+  transform: rotate(3deg);
+}

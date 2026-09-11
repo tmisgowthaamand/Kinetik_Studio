@@ -1,0 +1,453 @@
+/* ─── Studio Metrics & Telemetry Console ──────────────────────────────────── */
+.metrics-section {
+    position: relative;
+    width: 100%;
+    background-color: var(--color-black-deep);
+    padding: 140px 36px 120px;
+    color: var(--color-white);
+    overflow: hidden;
+    z-index: 2;
+    scroll-margin-top: 100px;
+}
+
+/* Ambient Backdrop Glow */
+.metrics-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1000px;
+    height: 600px;
+    background: radial-gradient(ellipse at top, rgba(240, 190, 250, 0.07) 0%, rgba(245, 105, 60, 0.03) 40%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.metrics__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ─── Editorial Header ─────────────────────────────────────────────────────── */
+.metrics__header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.metrics__header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.metrics__kicker {
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
+    color: var(--color-orange);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.metrics__pulse-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-orange);
+    box-shadow: 0 0 10px var(--color-orange);
+    animation: metricsPulse 2s infinite ease-in-out;
+}
+
+@keyframes metricsPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.4);
+        opacity: 0.5;
+    }
+}
+
+.metrics__telemetry-chip {
+    font-family: var(--font-heading);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    color: rgba(255, 255, 255, 0.45);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 5px 12px;
+    border-radius: 999px;
+}
+
+.metrics__live-led {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 8px #22c55e;
+}
+
+.metrics__header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.metrics__title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 4.5vw, 4.2rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin: 0;
+    color: var(--color-white);
+}
+
+.metrics__title-sub {
+    font-family: 'Times New Roman', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-pink);
+    letter-spacing: -0.5px;
+    display: block;
+}
+
+/* ─── Segmented Pill Tab Switcher ─────────────────────────────────────────── */
+.metrics__tabs-wrapper {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    padding: 5px;
+    backdrop-filter: blur(16px);
+}
+
+.metrics__tabs {
+    display: flex;
+    gap: 4px;
+}
+
+.metrics__tab-btn {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 9px 20px;
+    border-radius: 999px;
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.65);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+    white-space: nowrap;
+}
+
+.metrics__tab-btn:hover {
+    color: var(--color-white);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.metrics__tab-btn.is-active {
+    background: var(--color-white);
+    color: #0a0a0c;
+    font-weight: 700;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.25);
+}
+
+/* ─── Main Glassmorphic Console Card ──────────────────────────────────────── */
+.metrics__console-card {
+    background: linear-gradient(180deg, rgba(22, 22, 28, 0.75) 0%, rgba(12, 12, 16, 0.9) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 26px;
+    padding: 36px 36px;
+    backdrop-filter: blur(24px);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    transition: border-color 0.4s ease;
+}
+
+.metrics__console-card:hover {
+    border-color: rgba(255, 255, 255, 0.16);
+}
+
+.metrics__console-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.metrics__console-badge {
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 999px;
+    border: 1px solid;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.metrics__console-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 2.6vw, 2.3rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin: 0 0 6px;
+    color: var(--color-white);
+}
+
+.metrics__console-desc {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 650px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ─── SVG Interactive Chart Canvas ────────────────────────────────────────── */
+.metrics__chart-box {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    margin: 6px 0;
+}
+
+.metrics__chart-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.metrics__chart-dot-group {
+    transition: transform 0.2s ease;
+}
+
+.metrics__pulse-ring {
+    animation: ringPulse 2.4s infinite ease-out;
+    transform-origin: center;
+}
+
+@keyframes ringPulse {
+    0% {
+        transform: scale(0.85);
+        opacity: 0.4;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 0.1;
+    }
+    100% {
+        transform: scale(0.85);
+        opacity: 0.4;
+    }
+}
+
+/* ─── Milestone Stats Grid (2x2 on mobile, 4 cols on desktop) ─────────────── */
+.metrics__stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 24px;
+}
+
+.metrics__stat-box {
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 16px 18px;
+    transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+    min-width: 0;
+}
+
+.metrics__stat-box:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.16);
+    transform: translateY(-2px);
+}
+
+.metrics__stat-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 4px;
+    margin-bottom: 4px;
+}
+
+.metrics__stat-value {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 2.2vw, 2.2rem);
+    font-weight: 800;
+    color: var(--color-white);
+    letter-spacing: -0.5px;
+}
+
+.metrics__stat-delta {
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.metrics__stat-label {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.45);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ─── 4 Benchmark Pillars (2x2 Grid on Mobile & Tablet, 4 cols Desktop) ───── */
+.metrics__pillars-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.metrics__pillar-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 26px 20px;
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.2, 0, 0, 1);
+    min-width: 0;
+}
+
+.metrics__pillar-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.22);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.metrics__pillar-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+}
+
+.metrics__pillar-num {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 2.6vw, 3rem);
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    margin-bottom: 8px;
+    line-height: 1;
+}
+
+.metrics__pillar-name {
+    font-family: var(--font-heading);
+    font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: 6px;
+    letter-spacing: -0.2px;
+}
+
+.metrics__pillar-sub {
+    font-family: var(--font-body);
+    font-size: clamp(0.78rem, 0.95vw, 0.88rem);
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ─── Responsive Queries ─────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+    .metrics__pillars-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+    .metrics__stats-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .metrics-section {
+        padding: 90px 16px 70px;
+    }
+    .metrics__console-card {
+        padding: 24px 18px;
+        border-radius: 20px;
+    }
+    .metrics__header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    .metrics__tabs-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .metrics__tabs-wrapper::-webkit-scrollbar {
+        display: none;
+    }
+    .metrics__stats-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding-top: 18px;
+    }
+    .metrics__stat-box {
+        padding: 12px 14px;
+    }
+    .metrics__pillars-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .metrics__pillar-card {
+        padding: 18px 14px;
+        border-radius: 14px;
+    }
+}
+
+@media (max-width: 380px) {
+    .metrics__stats-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+    .metrics__stat-box {
+        padding: 10px 10px;
+    }
+    .metrics__pillars-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+    .metrics__pillar-card {
+        padding: 14px 10px;
+    }
+}

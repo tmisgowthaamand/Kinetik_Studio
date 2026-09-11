@@ -1,0 +1,268 @@
+/* ─── MotionCard Section ─────────────────────────────────────────────────── */
+.motion-card-section {
+    position: relative;
+    width: 100%;
+    padding: 120px 40px 100px;
+    text-align: center;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* ─── Part 1: Heading ────────────────────────────────────────────────────── */
+.motion-card__heading {
+    max-width: 900px;
+    margin: 0 auto 50px;
+    position: relative;
+}
+
+.motion-card__title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -3px;
+    color: var(--color-dark);
+    margin-bottom: 0;
+    cursor: url("/assets/Cursor SVG/cursor-text.svg") 12 12, auto;
+}
+
+.motion-card__subtitle {
+    font-family: 'Times New Roman', 'Georgia', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(2.4rem, 6.5vw, 6rem);
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    color: var(--color-dark);
+    position: relative;
+    display: inline-block;
+    margin-top: 8px;
+}
+
+/* SVG sticker placeholder */
+.motion-card__sticker {
+    position: absolute;
+    display: inline-block;
+    pointer-events: none;
+}
+
+.motion-card__sticker--top {
+    top: -15px;
+    right: -25px;
+    width: 100px;
+    height: auto;
+    rotate: calc(-10deg);
+}
+
+.motion-card__sticker-img {
+    width: 100%;
+    height: auto;
+}
+
+/* SVG underline */
+.motion-card__underline-svg {
+    display: block;
+    max-width: 600px;
+    margin: 10px auto 0;
+    color: var(--color-dark);
+    height: auto;
+}
+
+/* ─── Part 2: Cards Area ─────────────────────────────────────────────────── */
+.motion-card__cards-area {
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    height: 520px;
+    margin: 40px auto 60px;
+}
+
+/* Blue blob behind cards */
+.motion-card__blob {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 520px;
+    height: 460px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.motion-card__blob-svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* ─── Individual Cards ───────────────────────────────────────────────────── */
+.motion-card__cards {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.motion-card__card {
+    position: relative;
+    width: 220px;
+    height: 300px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+    flex-shrink: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.motion-card__card:hover {
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.28);
+}
+
+.motion-card__card-image {
+    width: 100%;
+    height: 100%;
+    background-color: #d9d2cb;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.motion-card__card-image .cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Desktop Card Fan Positions */
+.motion-card__card--1 {
+    transform: rotate(-7deg);
+    margin-right: -24px;
+    z-index: 1;
+}
+
+.motion-card__card--2 {
+    transform: rotate(5deg);
+    margin-right: -24px;
+    top: 24px;
+    z-index: 2;
+}
+
+.motion-card__card--3 {
+    transform: rotate(-5deg);
+    margin-right: -24px;
+    top: -12px;
+    z-index: 3;
+}
+
+.motion-card__card--4 {
+    transform: rotate(6deg);
+    top: 16px;
+    z-index: 4;
+}
+
+/* Mobile Badge (hidden on desktop, shown on mobile cards) */
+.motion-card__mobile-badge {
+    display: none;
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    border-bottom-left-radius: 2px;
+    font-family: var(--font-heading);
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    z-index: 5;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.badge--pink {
+    background-color: var(--color-pink);
+}
+
+.badge--yellow {
+    background-color: #fef08a;
+}
+
+.badge--orange {
+    background-color: var(--color-orange);
+}
+
+.badge--green {
+    background-color: var(--color-lightgreen);
+}
+
+/* ─── Floating Labels (Desktop Only) ─────────────────────────────────────── */
+.motion-card__floating-labels {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.motion-card__floating-labels .motion-card__floating-label {
+    pointer-events: auto;
+}
+
+.motion-card__floating-label {
+    position: absolute;
+    padding: 6px 16px;
+    border-radius: 9999px;
+    border-bottom-left-radius: 2px;
+    z-index: 10;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.motion-card__floating-text {
+    pointer-events: none;
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--color-dark);
+}
+
+/* Card 1 label — pink */
+.motion-card__floating-label--pink {
+    background-color: var(--color-pink);
+    top: 28%;
+    left: 32%;
+}
+
+/* Card 2 label — orange */
+.motion-card__floating-label--orange {
+    background-color: var(--color-orange);
+    top: 72%;
+    left: 48%;
+}
+
+/* Card 3 label — green */
+.motion-card__floating-label--red {
+    background-color: var(--color-lightgreen);
+    top: 36%;
+    left: 72%;
+}
+
+/* ─── Part 3: Bottom Text ────────────────────────────────────────────────── */
+.motion-card__footer-text {
+    max-width: 620px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.motion-card__description {
+    font-family: var(--font-body);
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    font-weight: 500;
+    line-height: 1.65;
+    color: rgba(26, 26, 26, 0.85);
+    letter-spacing: -0.2px;
+    cursor: url("/assets/Cursor SVG/cursor-text.svg") 12 12, auto;
+}
