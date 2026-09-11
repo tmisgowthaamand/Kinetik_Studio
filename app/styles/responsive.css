@@ -334,10 +334,117 @@
     transform: scale(0.9);
   }
 
-  /* ── Horizontal Words Marquee ── */
-  .horizontal-words__item {
-    font-size: clamp(1.8rem, 6.5vw, 3rem);
-    padding: 0 20px;
+  /* ── Horizontal Words Section (Smooth, Zero-Lag 60fps Ticker on Mobile) ── */
+  .horizontal-words-section {
+    height: auto !important;
+    min-height: auto !important;
+    padding: 70px 0 50px !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 32px !important;
+    background-color: var(--bg-color) !important;
+  }
+
+  .horizontal-words__track-wrapper {
+    width: 100% !important;
+    overflow: hidden !important;
+    position: relative !important;
+    padding: 30px 0 !important;
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  }
+
+  .horizontal-words__relative {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    padding: 0 !important;
+    width: max-content !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 40px !important;
+    animation: wordsTickerMobile 20s linear infinite !important;
+    will-change: transform !important;
+  }
+
+  .horizontal-words__mobile-repeat {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .horizontal-words__sticker-svg {
+    display: flex !important;
+    align-items: center !important;
+    width: max-content !important;
+    position: relative !important;
+    padding: 0 20px !important;
+  }
+
+  .horizontal-words__h2 {
+    font-size: clamp(2.4rem, 9.5vw, 3.8rem) !important;
+    letter-spacing: -1.5px !important;
+    white-space: nowrap !important;
+  }
+
+  .horizontal-words__arrow-svg {
+    width: 170px !important;
+    transform: translate(-140%, -25%) !important;
+  }
+
+  .horizontal-words__sticker-watch {
+    width: 48px !important;
+    left: 18% !important;
+    top: 40% !important;
+  }
+
+  .horizontal-words__sticker-cursor {
+    width: 52px !important;
+    left: 52% !important;
+    top: 60% !important;
+  }
+
+  .horizontal-words__sticker-phone {
+    width: 54px !important;
+    left: 82% !important;
+    top: 25% !important;
+  }
+
+  .horizontal-words__bottom-text {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 20px !important;
+    margin: 0 !important;
+    z-index: 5 !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .horizontal-words__bottom-text-l {
+    font-size: clamp(0.95rem, 3.8vw, 1.15rem) !important;
+    line-height: 1.6 !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    color: var(--color-black) !important;
+  }
+
+  .desktop-br {
+    display: none !important;
+  }
+
+  @keyframes wordsTickerMobile {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(-50%, 0, 0);
+    }
   }
 
   /* ── Motion Cards Section (All 4 Images Visible & Swipeable) ── */
@@ -439,26 +546,49 @@
     opacity: 0.7;
   }
 
-  /* ── Showreel ── */
+  /* ── Showreel (Portrait Mode Card on Mobile matching VimeoHero) ── */
   .showreel-section {
-    padding: 40px 8px;
+    width: calc(100% - 16px) !important;
+    height: calc(100svh - 16px) !important;
+    min-height: 520px !important;
+    margin: 8px auto !important;
+    border-radius: 18px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: relative !important;
+    background-color: var(--color-black-deep) !important;
   }
 
-  .showreel__video-box {
-    width: calc(100% - 12px);
-    height: 55vh;
-    min-height: 340px;
-    border-radius: 18px;
+  .showreel__video {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 18px !important;
   }
 
   .showreel__title {
-    font-size: clamp(2rem, 7vw, 3.4rem);
+    font-size: clamp(2.4rem, 8.5vw, 4.2rem) !important;
+    letter-spacing: -1.5px !important;
+  }
+
+  .showreel__tag {
+    font-size: 0.8rem !important;
+    letter-spacing: 2px !important;
+    padding: 5px 14px !important;
   }
 
   .showreel__hud {
-    bottom: 16px;
-    padding: 8px 16px;
-    gap: 12px;
+    bottom: 24px !important;
+    right: auto !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    padding: 8px 18px !important;
+    gap: 12px !important;
+    white-space: nowrap !important;
   }
 
   /* ── Studio Metrics (2-Column Grid on Mobile) ── */
