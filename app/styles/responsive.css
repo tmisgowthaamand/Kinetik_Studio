@@ -338,12 +338,12 @@
   .horizontal-words-section {
     height: auto !important;
     min-height: auto !important;
-    padding: 70px 0 50px !important;
+    padding: 60px 0 45px !important;
     overflow: hidden !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    gap: 32px !important;
+    gap: 28px !important;
     background-color: var(--bg-color) !important;
   }
 
@@ -351,9 +351,9 @@
     width: 100% !important;
     overflow: hidden !important;
     position: relative !important;
-    padding: 30px 0 !important;
-    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    padding: 85px 0 30px !important; /* Generous 85px headroom so the looping arrow is 100% visible */
+    mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
   }
 
   .horizontal-words__relative {
@@ -365,7 +365,7 @@
     width: max-content !important;
     display: flex !important;
     align-items: center !important;
-    gap: 40px !important;
+    gap: 60px !important;
     animation: wordsTickerMobile 20s linear infinite !important;
     will-change: transform !important;
   }
@@ -389,27 +389,62 @@
     white-space: nowrap !important;
   }
 
+  /* Looping Curly Arrow — perfectly arched above 'we make' pointing right at thumbs-up */
   .horizontal-words__arrow-svg {
-    width: 170px !important;
-    transform: translate(-140%, -25%) !important;
+    width: clamp(170px, 36vw, 240px) !important;
+    height: auto !important;
+    position: absolute !important;
+    left: 0% !important;
+    top: 50% !important;
+    transform: translate(-10%, -145%) !important;
+    z-index: 8 !important;
+    overflow: visible !important;
+    display: block !important;
   }
 
+  /* Thumbs-up sticker above 'make' */
   .horizontal-words__sticker-watch {
-    width: 48px !important;
-    left: 18% !important;
-    top: 40% !important;
+    width: clamp(42px, 8.5vw, 56px) !important;
+    height: auto !important;
+    position: absolute !important;
+    left: 14% !important;
+    top: 50% !important;
+    transform: translate(-50%, -105%) !important;
+    z-index: 10 !important;
   }
 
+  /* Cursor sticker over 'world' */
   .horizontal-words__sticker-cursor {
-    width: 52px !important;
+    width: clamp(45px, 9vw, 62px) !important;
+    height: auto !important;
+    position: absolute !important;
     left: 52% !important;
-    top: 60% !important;
+    top: 50% !important;
+    transform: translate(-50%, 15%) !important;
+    z-index: 10 !important;
   }
 
+  /* Phone sticker over 'stop' */
   .horizontal-words__sticker-phone {
-    width: 54px !important;
-    left: 82% !important;
-    top: 25% !important;
+    width: clamp(48px, 9.5vw, 66px) !important;
+    height: auto !important;
+    position: absolute !important;
+    left: 74% !important;
+    top: 50% !important;
+    transform: translate(-50%, -95%) !important;
+    z-index: 10 !important;
+  }
+
+  /* End arrow pointing after 'stare' */
+  .horizontal-words__arrow-end-svg {
+    width: clamp(50px, 10vw, 75px) !important;
+    height: auto !important;
+    position: absolute !important;
+    right: -10px !important;
+    left: auto !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 8 !important;
   }
 
   .horizontal-words__bottom-text {

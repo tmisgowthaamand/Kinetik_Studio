@@ -36,7 +36,7 @@ export default function MotionCards() {
                         lastY = e.clientY;
                     };
 
-                    const onEnter = () => {
+                    const onEnter = (e) => {
                         speedX = 0;
                         speedY = 0;
                         lastX = e.clientX;
@@ -77,7 +77,7 @@ export default function MotionCards() {
                         lastY = e.clientY;
                     };
 
-                    const onEnter = () => {
+                    const onEnter = (e) => {
                         speedX = 0;
                         speedY = 0;
                         lastX = e.clientX;
